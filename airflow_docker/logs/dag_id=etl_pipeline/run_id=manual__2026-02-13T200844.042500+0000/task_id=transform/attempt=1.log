@@ -1,0 +1,21 @@
+[2026-02-13T20:08:48.785+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etl_pipeline.transform manual__2026-02-13T20:08:44.042500+00:00 [queued]>
+[2026-02-13T20:08:48.800+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etl_pipeline.transform manual__2026-02-13T20:08:44.042500+00:00 [queued]>
+[2026-02-13T20:08:48.801+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 1
+[2026-02-13T20:08:48.819+0000] {taskinstance.py:2191} INFO - Executing <Task(BashOperator): transform> on 2026-02-13 20:08:44.042500+00:00
+[2026-02-13T20:08:48.826+0000] {standard_task_runner.py:60} INFO - Started process 163 to run task
+[2026-02-13T20:08:48.831+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'etl_pipeline', 'transform', 'manual__2026-02-13T20:08:44.042500+00:00', '--job-id', '9', '--raw', '--subdir', 'DAGS_FOLDER/etl_pipeline.py', '--cfg-path', '/tmp/tmpycszvuyf']
+[2026-02-13T20:08:48.832+0000] {standard_task_runner.py:88} INFO - Job 9: Subtask transform
+[2026-02-13T20:08:48.927+0000] {task_command.py:423} INFO - Running <TaskInstance: etl_pipeline.transform manual__2026-02-13T20:08:44.042500+00:00 [running]> on host d52f51268c6c
+[2026-02-13T20:08:49.013+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='etl_pipeline' AIRFLOW_CTX_TASK_ID='transform' AIRFLOW_CTX_EXECUTION_DATE='2026-02-13T20:08:44.042500+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-02-13T20:08:44.042500+00:00'
+[2026-02-13T20:08:49.015+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-02-13T20:08:49.018+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'python /opt/***/dags/scripts/transform.py']
+[2026-02-13T20:08:49.028+0000] {subprocess.py:86} INFO - Output:
+[2026-02-13T20:08:55.450+0000] {subprocess.py:93} INFO - /opt/***/dags/scripts/transform.py:23: UserWarning: The argument 'infer_datetime_format' is deprecated and will be removed in a future version. A strict version of it is now the default, see https://pandas.pydata.org/pdeps/0004-consistent-to-datetime-parsing.html. You can safely remove this argument.
+[2026-02-13T20:08:55.451+0000] {subprocess.py:93} INFO -   df["Date"] = pd.to_datetime(
+[2026-02-13T20:08:55.452+0000] {subprocess.py:93} INFO - RAW SHAPE: (536350, 8)
+[2026-02-13T20:08:55.452+0000] {subprocess.py:93} INFO - CLEANED SHAPE: (531095, 8)
+[2026-02-13T20:08:55.453+0000] {subprocess.py:93} INFO - CLEAN DATA SAVED TO processed/clean_sales.csv
+[2026-02-13T20:08:55.508+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-02-13T20:08:55.535+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=etl_pipeline, task_id=transform, execution_date=20260213T200844, start_date=20260213T200848, end_date=20260213T200855
+[2026-02-13T20:08:55.572+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2026-02-13T20:08:55.627+0000] {taskinstance.py:3280} INFO - 1 downstream tasks scheduled from follow-on schedule check
