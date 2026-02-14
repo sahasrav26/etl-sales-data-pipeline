@@ -1,0 +1,16 @@
+# Virtual Environment
+airflow_env/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Logs
+logs/
+
+# Airflow logs
+airflow_docker/logs/
+
+# OS files
+.DS_Store
+Thumbs.db
