@@ -1,9 +1,8 @@
-# End-to-End ETL Pipeline using Apache Airflow, Docker & PostgreSQL
+**End-to-End ETL Pipeline using Apache Airflow, Docker & PostgreSQL**
 
-## 📖 Project Overview
+**Project Overview**
 
 This project implements a production-style batch ETL pipeline that:
-
 - Extracts raw sales transaction data from a CSV file
 - Cleans and transforms the data
 - Validates business rules
@@ -15,27 +14,18 @@ The pipeline processes over 500,000 records.
 
 ---
 
-## 🏗 Architecture
+**Architecture:**
 
-Raw CSV (sales.csv)
-        ↓
-   Extract Task
-        ↓
-   Transform Task
-        ↓
-   Validate Task
-        ↓
-   Load Task
-        ↓
-   PostgreSQL Database
+Raw CSV → Extract → Transform → Validate → Load → PostgreSQL
+
+All steps are orchestrated using Airflow running inside Docker containers.
 
 Orchestration Layer: Apache Airflow  
 Containerization: Docker Compose  
 
 ---
 
-## 🛠 Tech Stack
-
+**Tech Stack:**
 - Python
 - Pandas
 - Apache Airflow
@@ -46,13 +36,13 @@ Containerization: Docker Compose
 
 ---
 
-## 🔄 Pipeline Steps
+**Pipeline Steps-**
 
-### 1️⃣ Extract
+***1.Extract***
 - Reads raw CSV data
 - Logs raw row count
 
-### 2️⃣ Transform
+***2.Transform***
 - Removes duplicates
 - Removes null values
 - Converts Date column to datetime
@@ -61,47 +51,41 @@ Containerization: Docker Compose
 - Removes negative or zero price
 - Saves cleaned dataset
 
-### 3️⃣ Validate
+***3.Validate***
 - Checks required columns
 - Checks for null values
 - Enforces business rules
 - Fails pipeline if validation fails
 
-### 4️⃣ Load
+***4.Load***
 - Connects to PostgreSQL
 - Inserts validated data into `sales` table
 
 ---
 
-## 📊 Data Volume
-
+**Data Volume**
 - ~536,000 raw records  
 - ~531,000 cleaned records  
 
 ---
 
-## 🚀 How to Run
-
+**How to Run**
 1. Initialize Airflow:
-
 docker compose up airflow-init
 
 2. Start all services:
-
 docker compose up
 
 3. Open Airflow UI:
-
 http://localhost:8080
 
 ---
 
-## 📌 Key Engineering Concepts Demonstrated
-
-- Batch ETL design
-- DAG orchestration
-- Data validation gate
-- Containerized services
-- PostgreSQL integration
-- Error handling via Airflow
-- Logging for observability
+**Key Features-**
+- Automated ETL workflow using Apache Airflow
+- Data extraction from CSV source files
+- Data cleaning and transformation using Pandas
+- Data validation checks before loading
+- Loading processed data into PostgreSQL
+- Fully containerized setup using Docker
+- Modular and scalable project structure
